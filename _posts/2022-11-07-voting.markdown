@@ -2,7 +2,7 @@
 layout: blog
 title:  "Simulating Voter Errors with ACT-R"
 date:   2022-11-07 21:26:21 -0600
-permalink: voting
+permalink: /voting/
 ---
 
 Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Pulvinar mattis nunc sed blandit libero. Lectus magna fringilla urna porttitor rhoncus dolor purus non. Consectetur libero id faucibus nisl tincidunt eget nullam non. Amet consectetur adipiscing elit pellentesque habitant morbi tristique senectus et. Interdum velit laoreet id donec ultrices tincidunt arcu. Id cursus metus aliquam eleifend mi in. Mauris commodo quis imperdiet massa tincidunt nunc pulvinar. Ut lectus arcu bibendum at varius vel pharetra. Leo a diam sollicitudin tempor id eu nisl nunc mi. Tempor orci eu lobortis elementum. Sapien nec sagittis aliquam malesuada bibendum arcu vitae elementum curabitur. Eu scelerisque felis imperdiet proin fermentum leo. Cras pulvinar mattis nunc sed blandit libero. Morbi tempus iaculis urna id. Arcu non sodales neque sodales ut etiam.

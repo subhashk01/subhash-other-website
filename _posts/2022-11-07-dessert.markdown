@@ -2,7 +2,7 @@
 layout: blog
 title:  "What is Set-of-Vector Search?"
 date:   2022-11-07 21:26:23 -0600
-permalink: dessert
+permalink: /dessert/
 ---
 
 In the traditional near neighbor problem, we are given a dataset  $$D$$ of $$N$$ $$d$$-dimensional vectors. Our goal is to build an index that can quickly find the closest vector in $$D$$ to an arbitrary $$d$$-dimensional query vector $$q$$.
