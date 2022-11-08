@@ -125,6 +125,6 @@ img {
 /* Small screens */
 @media print, screen and (max-width: 480px) {
   body {
-    padding:15px;
+    padding:23px;
   }
 }
