@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>{{page.title}}</title>
+
+  <!--------------------------------- Theme ----------------------------------->
+
+  <link rel="stylesheet" href="../stylesheets/blog.css">
+  <link rel="stylesheet" href="../stylesheets/pygment_trac.css">
+  <meta name="viewport" content="width=device-width">
+
+  <!--------------------------------- Favicon --------------------------------->
+  <link rel="icon" type="image/png" sizes="32x32" href="../assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="../assets/favicon/favicon-16x16.png">
+
+  <!--------------------------------- Mathjax (Latex) ------------------------->
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=es6"></script>
+  <script id="MathJax-script" async src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-mml-chtml.js"></script>
+
+</head>
+
+<body>
+  <div class="wrapper">
+
+    <section>
+      <h1 style="text-align:center">{{page.title}}</h1>
+      <p style="text-align:center">by <a href="../index.html">Josh Engels</a></p>
+      <hr>
+
+      {{ content }}
+      
+    </section>
+    <hr>
+
+    <footer>
+      <p><small>Check out this website's source <a
+            href="https://github.com/JoshEngels/JoshEngels.github.io">here</a>!</small><br>
+            <small>Or go back to my <a href="../index.html">homepage</a> (you can also click my name above).</small><br>
+        <small>Hosted on GitHub Pages with Jekyll; blog theme (modified) by <a href="https://github.com/orderedlist">orderedlist</a></small>
+      </p>
+    </footer>
+  </div>
+  <script src="../javascripts/scale.fix.js"></script>
+</body>

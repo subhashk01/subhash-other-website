@@ -1,0 +1,131 @@
+---
+
+---
+
+<!doctype html>
+<html>
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <title>Josh Engels</title>
+
+  <!--------------------------------- Theme --------------------------------->
+
+  <link rel="stylesheet" href="stylesheets/styles.css">
+  <link rel="stylesheet" href="stylesheets/pygment_trac.css">
+  <meta name="viewport" content="width=device-width">
+
+  <!--------------------------------- Favicon ------------------------------->
+  <link rel="icon" type="image/png" sizes="32x32" href="assets/favicon/favicon-32x32.png">
+  <link rel="icon" type="image/png" sizes="16x16" href="assets/favicon/favicon-16x16.png">
+
+  <!--------------------------------- Icons --------------------------------->
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/fork-awesome@1.2.0/css/fork-awesome.min.css"
+    integrity="sha256-XoaMnoYC5TH6/+ihMEnospgm0J1PM/nioxbOUdnM8HY=" crossorigin="anonymous">
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
+</head>
+
+<body>
+  <div class="wrapper">
+    <header>
+      <h1>Josh Engels</h1>
+      <img src="assets/images/circle.png" alt="Bio Image">
+
+      <div class="social-icons">
+        <a class="social-icon" href="mailto:josh.adam.engels@gmail.com"><i
+            class="fa fa-envelope-square"></i></a>
+        <a class="social-icon" href="https://github.com/JoshEngels/"><i
+            class="fa fa-github-square"></i></a>
+        <a class="social-icon" href="https://scholar.google.com/citations?user=yVPnVK8AAAAJ&hl=en"><i
+            class="ai ai-google-scholar-square"></i></a>
+        <a class="social-icon" href="assets/files/CV.pdf"><i class="ai ai-cv-square"></i></a>
+      </div>
+
+      <br>
+
+    </header>
+
+    <section>
+      <h1>Howdy!</h1>
+
+      I currently work as an AI engineer at ThirdAI, where we are building an
+      in-house sparse machine learning engine from scratch. At ThirdAI, I am 
+      lucky to be able to combine my passions for building algorithms and
+      for implementing high performance systems. 
+
+      <br><br>     
+
+      While at ThirdAI, and earlier in Rice University's Sketching and Hashing 
+      Lab, I have investigated randomized algorithms, group testing, and 
+      locality sensitive hashing. This work has resulting in efficient data 
+      structures that use these techniques to speed up high dimensional 
+      near neighbor search 
+      (<a href="https://proceedings.neurips.cc/paper/2021/file/5248e5118c84beea359b6ea385393661-Paper.pdf">FLINNG</a>) 
+      and set-of-vector search 
+      (<a href="https://arxiv.org/pdf/2210.15748.pdf">DESSERT</a>). 
+
+      <br><br>
+
+      Broadly, I am interested in building algorithms that solve real-world 
+      problems in a wide variety of domains, including machine learning, 
+      compression, computational geometry, and distributed computing.
+      <br>
+      <br>
+
+      <hr>
+      <h2>Papers</h2>
+      <p>
+        <b>DESSERT: An Efficient Algorithm for Vector Set Search with Vector Set Queries.</b> <br>
+        <u>Joshua Engels</u>, Benjamin Coleman,  Vihan Lakshman, and Anshumali Shrivastava<br>
+        Under submission<br>
+        <a href="https://arxiv.org/pdf/2210.15748.pdf">Preprint</a> |
+        <a href="https://github.com/ThirdAIResearch/Dessert">Code</a> |
+        <a href="">Blog Post</a>
+      </p>
+
+      <p>
+        <b>Practical Near Neighbor Search via Group Testing.</b> <br>
+        <u>Joshua Engels</u>*, Benjamin Coleman*, and Anshumali Shrivastava<br>
+        NeurIPS 2021: Spotlight talk - top 3%<br>
+        * indicates equal contribution<br>
+        <a href="https://proceedings.neurips.cc/paper/2021/file/5248e5118c84beea359b6ea385393661-Paper.pdf">Paper</a> |
+        <a href="https://slideslive.com/38968473/practical-near-neighbor-search-via-group-testing?ref=recommended">Talk</a> |
+        <a href="https://github.com/JoshEngels/FLINNG">Code</a> |
+        <a href="">Blog Post</a>
+      </p>
+
+      <p>
+        <b>Missed one! How ballot layout and visual task strategy can interact to produce voting errors.</b> <br>
+        <u>Joshua Engels</u>, Xianni Wang, Michael D. Byrne<br>
+        International Conference on Cognitive Modeling 2020.<br>
+        <a href="https://par.nsf.gov/servlets/purl/10195603">Paper</a> |
+        <a href="https://mathpsych.org/presentation/148">Talk</a> |
+        <a href="https://github.com/JoshEngels/VotingModel">Code</a> |
+        <a href="voting/index.html">Blog Post</a>
+      </p>
+      <hr>
+
+      <h2>Blog Posts</h2>
+      {% for post in site.posts %}
+      <a href="{{ post.url }}">{{ post.title }}</a><br>
+      {{ post.content | strip_html | truncatewords: 20 }}
+      <br>
+      {% if forloop.last == false %}
+        <br>
+      {% endif %}
+      {% endfor %}
+
+    </section>
+    <footer>
+      <p><small>Check out this website's source <a
+            href="https://github.com/JoshEngels/JoshEngels.github.io">here</a>!</small><br>
+        <small>Hosted on GitHub Pages with Jekyll. <br>
+          Homepage theme by <a href="https://github.com/orderedlist">orderedlist</a>.</small>
+      </p>
+    </footer>
+  </div>
+  <script src="javascripts/scale.fix.js"></script>
+</body>
+
+</html>
