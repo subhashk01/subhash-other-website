@@ -118,13 +118,27 @@ th {
   color:#444;
 }
 
-img {
-  max-width:100%;
-}
-
 /* Small screens */
 @media print, screen and (max-width: 480px) {
   body {
     padding:23px;
   }
+}
+
+
+img.wrapfig {
+  margin:20px;
+  float:right; 
+
+  @media only screen and (max-width: 500px) {
+    float:none !important;
+    display:block;
+    margin-left:auto; 
+    margin-right:auto;
+  }
+}
+
+img {
+  max-width: 100%;
+  height: auto;
 }
