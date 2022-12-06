@@ -176,7 +176,7 @@ Finally, we are ready to prove that $$X3C$$ is no -> $$B(M, D)$$ is no. Assume b
 
 $$C' = \{a_{3i}, a_{3i+1}, a_{3i+2} \lvert Z\text{-words}=\{z, z, a_{3i}, a_{3i+1}, a_{3i+2}, z, z\}\}$$. 
 
-We know that every element in $$X$$ occurs in at least one element of $$C'$$ because $$S$$ is valid and uses all of the tiles of $$X$$, and by Lemma $3$$ all of the tiles in $$X$$ are in some $$Z$$-word. Furthermore, we know that no element of $$X$$ occurs in two sets in $$C'$$ by Lemma $$4$$. Thus, this $$C'$$ is a valid cover for $$X3C$$, which is a contradiction, and $$X3C$$ is no -> $$B(M, D)$$ is no. 
+We know that every element in $$X$$ occurs in at least one element of $$C'$$ because $$S$$ is valid and uses all of the tiles of $$X$$, and by Lemma $$3$$ all of the tiles in $$X$$ are in some $$Z$$-word. Furthermore, we know that no element of $$X$$ occurs in two sets in $$C'$$ by Lemma $$4$$. Thus, this $$C'$$ is a valid cover for $$X3C$$, which is a contradiction, and $$X3C$$ is no -> $$B(M, D)$$ is no. 
 
 $$\blacksquare$$
 
