@@ -13,7 +13,7 @@ In this post we'll dive in to an abstract version of the game Bananagrams, prove
 
 We will be interested in a simplified, abstract version of Bananagrams. Assume we are given $$N$$ tiles, where each tile can be any "letter" from an alphabet of unique letters $$V$$. We can represent these tiles with a multiset $$M$$, so $$\lvert M \rvert = N$$. Consider a dictionary $$D$$ of ordered sequences of letters ("words"), where each letter is also from $$V$$. We define a Bananagram decision problem $$B(M, D)$$ to be the following: is it possible to make a two dimensional crossword-style grid that uses all tiles from $$M$$ exactly once, such that each contiguous group of letters in the grid going left to right or top to bottom is in $$D$$?
 
-When you play Bananagrams with your family or friends, you probably sensibly set $$D$$ to be the Oxford English Dictionary or the Scrabble Dictionary or some common sense shared vocabulary that you definitely won't argue over, for sure. The (English version) of the game comes with only the $$26$$ tiles of the English alphabet, so $$V = \{a, b, c, d, e, f, g, h, i, j, k, l, m, n, o, p, q, r, s, t, u, v, w, x, y, z\}$$. During play, you frequently end up with some multiset $$M$$ of tiles that you need to turn into a crossword-style grid, and because the word distribution $$D$$ is pretty friendly the decision problem $$B(M, D)$$ will probably evaluate to "yes". Let's run through a couple of quick examples here to show this clearly. 
+When you play Bananagrams with your family or friends, you probably sensibly set $$D$$ to be the Oxford English Dictionary or the Scrabble Dictionary or some common sense shared vocabulary that you definitely won't argue over, for sure. The (English version) of the game comes with only the $$26$$ tiles of the English alphabet, so $$V = \{a, b, c, d, \ldots, x, y, z\}$$. During play, you frequently end up with some multiset $$M$$ of tiles that you need to turn into a crossword-style grid, and because the word distribution $$D$$ is pretty friendly the decision problem $$B(M, D)$$ will probably evaluate to "yes". Let's run through a couple of quick examples here to show this clearly. 
 
 Say we have $$M = \{a, a, a, a, c, e, t, t, p\}$$ and $$D$$ is the Scrabble Dictionary. Then $$B(M, D) = yes$$. For example, we can lay out the tiles like so:
 
@@ -56,7 +56,10 @@ $$X = \{0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11\}$$
 
 and
 
-$$C = \{\{0, 1, 2\}, \{2, 3, 4\}, \{4, 5, 6\}, \{6, 7, 8\}, \{8, 9, 10\}, \{10, 11, 0\}\}$$
+$$\begin{align*}C = \{&\{0, 1, 2\}, \{2, 3, 4\} \\
+    &\{2, 3, 4\}, \{4, 5, 6\}, \\
+    &\{6, 7, 8\}, \{8, 9, 10\}, \\
+    &\{10, 11, 0\}\}\end{align*}$$
 
 Then the answer to this decision problem is $$no$$, because if we pick the only set with $$3$$
 then we can't pick the only sets with $$1$$ and $$5$$. On the other hand, if 
@@ -64,6 +67,7 @@ then we can't pick the only sets with $$1$$ and $$5$$. On the other hand, if
 $$C = \{\{0, 1, 2\}, \{3, 4, 5\}, \{6, 7, 8\}, \{9, 10, 11\}\}$$
 
 then the answer to the decision problem is $$yes$$, with $$C' = C$$. We will reduce X3C to $$B(M,D)$$ in our proof below.
+
 
 # Proof that $$B(M, D)$$ is NP-complete
 
@@ -77,11 +81,11 @@ integer tuples $$(x_i, y_i)$$, $$x_i, y_i \in \mathbb{z}$$. Let $$T = \{(x_i, y_
 2. **Every horizontal and vertical word is in $$D$$.** 
 For every $$i$$, we define a tuple $$H_i$$ as the "horizontal word" containing tile $$i$$ and a tuple $$V_i$$ as the "vertical word" containing tile $$i$$. Formally, to define $$H_i$$, let $$l$$ be the smallest integer such that $$(k, y_i) \in T$$ for all $$k \in [l, x_i]$$ and let $$r$$ be the largest integer such that $$(k, y_i) \in T$$ for all $$k \in [x_i, r]$$. Then $$H_i$$ is the following tuple:
 
-    $$H_i = \left(T[(l, y_i)], T[(l + 1, y_i)], \ldots, T[(r - 1, y_i)], T[(r, y_i)]\right) $$
+    $$H_i = \left(T[(l, y_i)], T[(l + 1, y_i)], \ldots, T[(r, y_i)]\right) $$
 
     Similarly, to define $$L_i$$, let $$b$$ be the smallest integer such that $$(x_i, b) \in T$$ for all $$k \in [b, y_i]$$ and let $$t$$ be the largest integer such that $$(x_i, t) \in T$$ for all $$k \in [y_i, t]$$. Then $$V_i$$ is the following tuple:
 
-    $$V_i = \left(T[(x_i, b)], T[(x_i, b + 1)], \ldots, T[(x_i, t-1)], T[(x_i, t)]\right) $$
+    $$V_i = \left(T[(x_i, b)], T[(x_i, b + 1)], \ldots, T[(x_i, t)]\right) $$
 
     Recall that $$D = \{W_1, W_2, \ldots, W_k\}$$, where each $$W_i$$ is a tuple of elements of $$V$$. We then require $$V_i \in D$$ if $$\lvert V_i \rvert > 0 $$, and we require $$H_i \in D$$ if $$\lvert H_i \rvert > 0$$, for all $$i \in [1, \ldots, \lvert M \rvert]$$. 
     
@@ -97,13 +101,14 @@ and the highlighted horizontal (green) and vertical (red) words are all in $$D$$
 First, we show that $$B(M, D)$$ is in NP. Consider some possible assignment $$S$$, with $$T$$ defined the same way as above. Algorithm $$A$$ that can verify $$S$$ in polynomial time is as follows:
 * Verify that no tile is isolated by building a graph $$G$$ as described above and checking if it is connected. Such a graph can at worst be built in $$O(\lvert M \rvert^2)$$ by looping through every two tiles and checking if they are adjacent, and if so adding an edge between them. Checking if a graph is connected is a standard operation that we can do in time $$O(\lvert M \rvert)$$. 
     
+
 * Verify that all words are valid. We can use the following pesudocode, which
 runs in polynomial time. The proof is left as an exercise to the reader (no for real it's not too bad!).
   
     {% highlight python %}
-    def verify_words_valid(M, D)
+    def verify_valid(M, D)
         for t_i in M:
-            find H_i and V_j as defined above
+            find H_i, V_j
             if H_i not in D:
                 return false
             if V_i not in D:
@@ -113,6 +118,7 @@ runs in polynomial time. The proof is left as an exercise to the reader (no for 
 
 
 These algorithms are thus polynomial in the sizes of $$M$$ and $$D$$, so $$B(M,D)$$ is in NP.
+
 
 ## $$B(M,D)$$ is NP-Hard
 
@@ -125,12 +131,12 @@ $$M = X \cup R(y, 2 \lvert X \rvert ) \cup R(z, \lvert X \rvert + 1)$$
 
 Now, let $$\lvert C \rvert = k$$ and denote 
 
-$$C_1 = \{a_1, a_2, a_3\}, C_2 = \{a_4, a_5, a_6\}, \ldots, C_k = \{a_{3k - 2}, a_{3k - 1}, a_{3k}\}$$
+$$\begin{align*}C_1 &= \{a_1, a_2, a_3\},\\ C_2 &= \{a_4, a_5, a_6\}, \ldots \\ C_k &= \{a_{3k - 2}, a_{3k - 1}, a_{3k}\} \end{align*}$$
 
 Then we define $$D$$ as follows:
 
 $$\begin{aligned}
-D_1 &= \{(z, z, a_1, a_2, a_3, z, z), (z, z, a_4, a_5, a_6, z, z) \ldots, (z, z, a_{3k - 2}, a_{3k - 1}, a_{3k}, z, z)\}\\
+D_1 &= \{(z, z, a_{3j+1}, a_{3j+2}, a_{3j+3}, z, z) \lvert j \in [0, k - 1]\}\\
 D_2 &= \{(y, a, y) | a \in X\}\\
 D_3 &= \{(y, y, y)\}\\
 D &= D_1 \cup D_2 \cup D_3 \end{aligned}$$
@@ -138,6 +144,7 @@ D &= D_1 \cup D_2 \cup D_3 \end{aligned}$$
 In other words (pun intended), these are the words in our dictionary $$D$$:
 
 <img src="/assets/images/possibilities.png" style="display:block; margin-left: auto; margin-right: auto;" width="300">
+
 
 ### $$X3C$$ is yes -> $$B(M, D)$$ is yes
 Assume there is some valid cover $$C' = \{C_{j_1}, \ldots, C_{j_n}\}$$. Then we claim the following is a valid solution of the reduced Bananagrams problem:
@@ -172,14 +179,14 @@ However, $$(t_2, t_1, a_i)$$ must then form some part of a vertical word. Howeve
 
 **Lemma 4** Every $$a_j \in X$$ is in just *one* $$Z$$-word. Assume by contradiction that this is not the case, and some $$a_k$$ is in two $$Z$$-words. Since every $$a_j$$ is in a $$Z$$-word (Lemma $$3$$), at least two tiles next to every $$a_j$$ are not a $$y$$ (since $$y$$s are not in $$Z$$-words). Since $$a_k$$ is in two $$Z$$-words (one horizontal and one vertical), all $$4$$ adjacent tiles to $$a_k$$ will not be $$y$$. This leaves at most $$\lvert X \rvert * 2 - 2$$ possible places for $$y$$ next to $$a$$s. By Lemma $$2$$, $$y$$s can only go in these positions. Since there are $$2\lvert X \rvert$$ $$y$$ tiles by the definition of $$M$$, but only $$\lvert X \rvert * 2 - 2$$ places to put them, this is a contradiction and the assumption must be false, and thus every $$a_j \in X$$ is in just *one* $$Z$$-word.
 
-Finally, we are ready to prove that $$X3C$$ is no -> $$B(M, D)$$ is no. Assume by contradiction this was not the case, and there was some $$X$$ such that $$X3C$$ was no and $$B(M,D)$$ was yes; in other words, we had a valid $$S$$. We can then take the set of all $$Z$$-words on the board, and consider 
+Finally, we are ready to prove that $$X3C$$ is no -> $$B(M, D)$$ is no. Assume by contradiction this was not the case, and there was some $$X$$ such that $$X3C$$ was no and $$B(M,D)$$ was yes; in other words, we had a valid $$S$$. We can then take the set of all $$Z$$-words on the board $$\{Z_i\}$$, where we let $$Z_i = \{z, z, a_{i,1}, a_{i,2}, a_{i,3}, z, z\}$$, and consider 
 
-$$C' = \{a_{3i}, a_{3i+1}, a_{3i+2} \lvert Z\text{-words}=\{z, z, a_{3i}, a_{3i+1}, a_{3i+2}, z, z\}\}$$. 
+
+$$C' = \{\{a_{i,1}, a_{i,2}, a_{i,3}\} | Z_i\}$$
+
 
 We know that every element in $$X$$ occurs in at least one element of $$C'$$ because $$S$$ is valid and uses all of the tiles of $$X$$, and by Lemma $$3$$ all of the tiles in $$X$$ are in some $$Z$$-word. Furthermore, we know that no element of $$X$$ occurs in two sets in $$C'$$ by Lemma $$4$$. Thus, this $$C'$$ is a valid cover for $$X3C$$, which is a contradiction, and $$X3C$$ is no -> $$B(M, D)$$ is no. 
 
 $$\blacksquare$$
-
-## Citations
 
 [1] - [Exact Cover by 3-Sets](https://npcomplete.owu.edu/2014/06/10/exact-cover-by-3-sets/)
