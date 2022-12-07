@@ -1,7 +1,7 @@
 ---
 layout: blog
 title:  "Bananagrams is NP-complete"
-date:   2022-11-08 21:26:21 -0600
+date:   2022-11-09 21:26:21 -0600
 permalink: /bananagrams/
 ---
 
