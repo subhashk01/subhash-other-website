@@ -5,8 +5,27 @@ date:   2022-11-08 21:26:21 -0600
 permalink: /dessert/
 ---
 
-In the traditional near neighbor problem, we are given a dataset  $$D$$ of $$N$$ $$d$$-dimensional vectors. Our goal is to build an index that can quickly find the closest vector in $$D$$ to an arbitrary $$d$$-dimensional query vector $$q$$.	
+The set-of-vector search problem is an exciting and relatively unexplored research problem. In our recent paper, we develop [DESSERT](https://arxiv.org/pdf/2210.15748.pdf), a novel algorithm to efficiently solve set-of-vector search. In this blog post, I'll first give a primer on traditional nearest neighbor search, and then I'll dive into a detailed explanation of set-of-vector search. At the end, I'll describe some of the intuition behind DESSERT and then talk about interesting problems that can be solved with set-of-vector search.
 
-Many important search problems can be analyzed and solved with this framework through an *embedding model*. An embedding model is a machine learning model that has been trained to map the objects we want to search over (images, music, documents, products) into vectors (“embeddings”), such that similar items will have embeddings that are close together. By mapping all of the items we want to search over into embeddings, and doing the same for a query, we can find the most similar items to the query by finding the closest embeddings to the query embedding.	
+## The Traditional Nearest Neighbor Problem
 
-The research community has especially focused on the *approximate near neighbor search problem*, which is much more tractable than exact near neighbor search as $$N$$ and $$d$$ grow large. Competition is fierce: graph based algorithms like [HNSW]("https://github.com/nmslib/hnswlib"), LSH based algorithms like [FLASH]("https://github.com/RUSH-LAB/Flash") or our own [FLINNG]("https://github.com/JoshEngels/FLINNG"), and quantization based algorithms like [FAISS](https://github.com/facebookresearch/faiss") all face off in [different]("http://ann-benchmarks.com/") [benchmarks]("https://big-ann-benchmarks.com").
+In the traditional nearest neighbor problem, we are given a dataset $$D$$ of $$N$$ $$d$$-dimensional vectors. Our goal is to build an index that can quickly find the "closest" vector (the nearest neighbor) in $$D$$ to an arbitrary $$d$$-dimensional query vector $$q$$. Here, we define "closest" as the vector in $$D$$ that maximizes a similarity function $$sim(q, v_i)$$ for $$v_i$$ in $$D$$. Common choices for $$sim$$ include Euclidean similarity, cosine similarity, and Jaccard similarity.
+
+The picture below shows an example of a nearest neighbor problem with $$d=2$$, with a sample query in orange and the various points in $$D$$ in other colors. The nearest neighbor to the sample query is the blue point, assuming $$sim$$ is Euclidean similarity $$sim_E$$.
+
+<img src="/assets/images/nn.png" style="display:block; margin-left: auto; margin-right: auto;" width="400">
+
+## The Set-of-Vector Search Problem
+
+In the set-of-vector search problem (AKA set search with vector set queries), we are given a dataset $$D$$ consisting of $$N$$ *sets* of vectors. Each set, $$S_i$$, consists of $$m_i$$ $$d$$-dimensional vectors. Our goal is to build an index that can quickly find the "closest" set $$S_i$$ in $$D$$ to an arbitrary query vector set $$Q$$, where $$Q$$ consists of $$m_q$$ $$d$$-dimensional vectors. Here, "closest" means the set in $$D$$ that maximizes a "set relevance" function[^1] $$f(Q, S_i)$$ for $$S_i$$ in $$D$$. We note that the set-of-vector search problem reduces to the traditional nearest neighbor problem when $$m_q = 1$$ and $m_i = 1$$ for all $$i$$. Finally, we introduce the notation $$S_{i, j}$$ to denote the $$j$$th vector in the $$i$$th set in $$D$$ and the notation $$Q_k$$ to denote the $$k$$'th vector in $$Q$$.
+
+The picture below shows an example of the set-of-vector search problem with $$d=2$$, with a sample query vector set in orange and the various vector sets in $$D$$ in other colors. The nearest neighbor to the query is the set of blue points, assuming $$f(Q, S_i) = \sum_k \max_j sim_E(Q_k, S_{i,j})$$ (in other words, the set relevance function is the "sum over $$k$$ of the max Euclidean similarity between $$Q_k$$ and any vector in $$S_i$$").
+
+<img src="/assets/images/set-nn.png" style="display:block; margin-left: auto; margin-right: auto;" width="600">
+
+## Applications
+
+
+Footnotes: 
+
+[^1]: Unlike traditional near neighbor search, where the similarity function is usually the inverse of a formal distance [metric](https://en.wikipedia.org/wiki/Metric_space), we don't require our similarity function to relate to a formal distance function, since this requirement is more restrictive in this extended problem. One example of a metric over vector sets might be replacing each set with its average vector and then reducing to the Euclidean metric.
