@@ -52,14 +52,14 @@ Image search is the problem of searching for images in a collection that are sim
 
 ### Basket Completion
 
-Basket completion is a problem faced by online retailers, where the goal is to suggest additional items for a customer to purchase based on their current "basket" of items. For example, if a customer is purchasing a toothbrush, toothpaste, soap, a razor, and shampoo, a good basket completion model might suggest conditioner and shaving cream. 
+Basket completion is a problem faced by online retailers, where the goal is to suggest additional items for a customer to purchase based on their current cart (or "basket") of items. For example, if a customer currently has a toothbrush, toothpaste, soap, a razor, and shampoo in their cart, a good basket completion suggestion might be conditioner or shaving cream. 
 
-Typical basket completion datasets have many prior baskets that customers have shopped for. A good way of searching for similar baskets to use for item completions may be to embed the current basket and all of those other baskets and then perform set-of-vector search.
+Typical basket completion datasets have many prior baskets that customers have checked out with, and some basket completion algorithms search these prior baskets for similar baskets to the current customer's choices. A good way of searching for similar baskets to use for item completions may be to embed each item in the current basket into a vector, do the same for the dataset of baskets, and then perform set-of-vector search.
 ## DESSERT
 
-The set-of-vector search process used in ColBERT is prohibitively slow on CPUs (and may be a reason why no one has tried using set-of-vector search in image search or basket retrieval). This bottleneck inspired us to build [DESSERT](https://arxiv.org/pdf/2210.15748.pdf) an approximate set-of-vector search algorithm. Approximate search algorithms have been extensively studied in the near neighbor search literature because they are much more tractable than exact near neighbor search as $$N$$ and $$d$$ grow large, so DESSERT continues in these footsteps in the more general problem.
+The set-of-vector search process used in ColBERT is prohibitively slow on CPUs because it relies on an expensive matrix multiplication (this may also be why no one has tried using set-of-vector search in image search or basket retrieval). This bottleneck inspired us to build [DESSERT](https://arxiv.org/pdf/2210.15748.pdf), an *approximate* set-of-vector search algorithm. Approximate search algorithms have been extensively studied in the near neighbor search literature because they are much more tractable than exact near neighbor search as $$N$$ and $$d$$ grow large, and DESSERT continues in these footsteps in the more general problem.
 
-DESSERT can solve forms of the set relevance function $$f$$ we defined above that are the composition of two "set aggregation" or "variadic" functions, one over $$Q$$ and one over $$X_i$$. In other words, we restrict $$f$$ to functions of the form
+DESSERT can solve forms of the set relevance function $$f$$ that are the composition of two "set aggregation" or "variadic" functions, one over $$Q$$ and one over $$X_i$$. In other words, we restrict $$f$$ to functions of the form
 
 $$f(Q,X_i) = A_1(A_2(sim(q_k, x_j): x_j \in X_i): q_k \in Q)$$
 
