@@ -3,6 +3,7 @@ layout: blog
 title:  "Simulating Voter Errors with ACT-R"
 date:   2022-11-07 21:26:21 -0600
 permalink: /voting/
+last_modified_at: 2022-12-11
 ---
 
 Badly designed ballots may not seem like a pressing problem, but they have already swung multiple elections. For instance, consider the following ballot:

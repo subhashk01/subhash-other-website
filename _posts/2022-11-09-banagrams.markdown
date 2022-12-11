@@ -3,6 +3,7 @@ layout: blog
 title:  "Bananagrams is NP-complete"
 date:   2022-11-09 21:26:21 -0600
 permalink: /bananagrams/
+last_modified_at: 2022-12-11
 ---
 
 Have you ever wondered if [Bananagrams](https://bananagrams.com/) is NP-complete? No? Well I think it is, and I'll prove it! 

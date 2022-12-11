@@ -3,6 +3,7 @@ layout: blog
 title:  "What is Set-of-Vector Search?"
 date:   2022-11-08 21:26:21 -0600
 permalink: /dessert/
+last_modified_at: 2022-12-11
 ---
 
 The set-of-vector search problem is an exciting and unexplored research problem. In our recent paper, we develop [DESSERT](https://arxiv.org/pdf/2210.15748.pdf), a novel algorithm to efficiently solve set-of-vector search. In this blog post, I'll first give a primer on traditional nearest neighbor search, and then I'll dive into a detailed explanation of set-of-vector search. In the rest of the post talk about interesting problems that can be solved with set-of-vector search and do a deep dive into the intuition behind DESSERT. 
