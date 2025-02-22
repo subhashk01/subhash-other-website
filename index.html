@@ -1,14 +1,10 @@
----
-
----
-
 <!DOCTYPE html>
 <html>
 
 <head>
   <meta charset="utf-8">
   <meta http-equiv="X-UA-Compatible" content="chrome=1">
-  <title>Josh Engels</title>
+  <title>Subhash Kantamneni</title>
 
   <!--------------------------------- Theme ----------------------------------->
   <link rel="stylesheet" href="stylesheets/styles.css">
@@ -19,17 +15,39 @@
   <link rel="stylesheet" href="https://cdn.jsdelivr.net/gh/jpswalsh/academicons@1/css/academicons.min.css">
 
   <!--------------------------------- Other stuff ----------------------------->
-  {%- include common-head.html -%}
 
-  {% seo %}
-
-  {% include analytics.html %}
 
   <style>
+    body {
+      background-color: white;
+      color: #222222;
+      font-size: 16.5px;
+    }
     .social-icons {
       display: flex;
       justify-content: center;
-      margin-top: 10px; /* Adjust as needed for spacing */
+      margin-top: 10px;
+    }
+    .social-icon i {
+      color: #222222;
+    }
+    a {
+      color: #0066cc;
+    }
+    h1 {
+      font-size: 36px;
+      text-align: center;
+      font-weight: bold;
+    }
+    h2 {
+      font-size: 24px;
+      font-weight: bold;
+    }
+    .profile-img {
+      display: block;
+      margin: 0 auto;
+      width: 70%;
+      border-radius: 50%;
     }
   </style>
 
@@ -38,20 +56,19 @@
 <body>
   <div class="wrapper">
     <header>
-      <h1>Josh Engels</h1>
-      <img src="assets/images/bio.jpg" alt="Bio Image" 
-        style="border-radius: 50%">
+      <h1>Subhash Kantamneni</h1>
+      <img src="assets/images/subhash.jpg" alt="Bio Image" class="profile-img">
 
       <div class="social-icons">
-        <a class="social-icon" href="mailto:josh.adam.engels@gmail.com"><i
+        <a class="social-icon" href="mailto:subhashk@mit.edu"><i
             class="fa fa-envelope-square"></i></a>
-        <a class="social-icon" href="https://github.com/JoshEngels/"><i
+        <a class="social-icon" href="https://github.com/subhashk01"><i
             class="fa fa-github-square"></i></a>
-        <a class="social-icon" href="https://scholar.google.com/citations?user=yVPnVK8AAAAJ&hl=en"><i
+        <a class="social-icon" href="https://scholar.google.com/citations?user=mF7NANoAAAAJ&hl=en&gmla=AOv-ny_NUY3N1YY6DJkfhySx36jXTeXIFGmfyAiM2G4gtsJlSyYF7-bD6hYodY72YWHlzxyisAf3KubhNZmzmsjTSXRYuuyWv1iAIGgR1vc&sciund=17608548661071717622"><i
             class="ai ai-google-scholar-square"></i></a>
-        <a class="social-icon" href="assets/files/CV.pdf"><i class="ai ai-cv-square"></i></a>
+        <a class="social-icon" href="assets/files/Kantamneni_Subhash_Resume.pdf"><i class="ai ai-cv-square"></i></a>
         <!-- Twitter icon -->
-        <a class="social-icon" href="https://x.com/JoshAEngels"><i class="fa fa-twitter-square"></i></a>
+        <a class="social-icon" href="https://x.com/thesubhashk"><i class="fa fa-twitter-square"></i></a>
       </div>
 
       <br>
@@ -59,21 +76,20 @@
     </header>
 
     <section>
-      <h1>Howdy!</h1>
+      <h1>What's Up</h1>
 
-      I am currently a second year EECS PhD student at MIT, where I am grateful to be advised by 
-      <a href="https://tegmark.org/">Max Tegmark</a>. Broadly, I am interested in understanding neural networks 
-      from the ground up through the lens of interpretability, with an eventual goal of using these
-      insights to ensure powerful AI systems are robust and safe. I am currently
-      supported by the NSF Graduate Research Fellowship Program.
+      I'm an EECS Masters student at MIT, where I'm grateful to be advised by 
+      <a href="https://tegmark.org/">Max Tegmark</a>. I'm primarily interested in AI Safety from two angles: 
+      mechanistic interpretability, where I attempt to decode the underlying algorithms neural networks use, and alignment, where I explore 
+      how to control and align AI systems with human values. Recently, I was accepted to do an EECS PhD at U.C. Berkeley
 
       <br><br>     
 
-      Earlier in my PhD, I had the pleasure of working with Julian Shun on building high 
-      performance algorithms, with a focus on approximate nearest neighbor search.
-      I also previously spent two enjoyable years working at ThirdAI, where we built a
-      sparse machine learning engine from scratch. 
-
+      I received my undergraduate degree from MIT with a double major in Physics and
+      Computer Science and a 5.0 GPA. During this time I was selected as a finalist for the Fulbright Scholarship,
+      was an advisor to MIT President Sally Kornbluth through the Presidential Advisory Cabinet, and taught STEM workshops 
+      to high school students in South Korea, Botswana, South Africa, and Bahrain. 
+      I love reading, meditating, traveling, and playing basketball (go Heat).
       <br>
       <br>
 
@@ -81,91 +97,42 @@
       <h2>Selected Papers</h2>
 
       <p>
-        <b>Decomposing the Dark Matter of Sparse Autoencoders.</b> <br>
-        <u>Joshua Engels</u>, Logan Smith, and Max Tegmark.<br>
-        <a href="https://arxiv.org/pdf/2410.14670">Preprint</a> |
-        <a href="https://github.com/JoshEngels/SAE-Dark-Matter">Code</a> |
-        <a href="https://x.com/JoshAEngels/status/1848339201864974674">Twitter</a>
+        <b>Language Models Use Trigonometry to Do Addition</b> <br>
+        <u>Subhash Kantamneni</u> and Max Tegmark<br>
+        <a href="https://arxiv.org/abs/2502.00873">Paper</a> |
+        <a href="https://github.com/subhashk01/LLM-addition">Code</a> |
+        <a href="https://x.com/thesubhashk/status/1887138694546788556">Twitter</a> | Submitted ICML 2025 Main Conference
       </p>
 
       <p>
-        <b>Efficient Dictionary Learning with Switch Sparse Autoencoders.</b> <br>
-        Anish Mudide, <u>Joshua Engels</u>, Eric J Michaud, Max Tegmark, and Christian Schroeder de Witt.<br>
-        <a href="https://arxiv.org/pdf/2410.08201">Preprint</a> |
-        <a href="https://github.com/amudide/switch_sae/tree/main">Code</a> |
-        <a href="https://x.com/amudide/status/1844770083844882526">Twitter</a>
+        <b>How Do Transformers Model Physics? Investigating the Simple Harmonic Oscillator</b> <br>
+        <u>Subhash Kantamneni</u>, Ziming Liu, and Max Tegmark<br>
+        <a href="https://arxiv.org/abs/2405.17209">Paper</a> |
+        <a href="https://github.com/subhashk01/transformer-physics">Code</a> |
+        <a href="https://x.com/thesubhashk/status/1795474076024320170">Twitter</a> | <i>Entropy</i> and ICML 2024 Mechanistic Interpretability Workshop
       </p>
       
       <p>
-        <b>Not All Language Model Features Are Linear.</b> <br>
-        <u>Joshua Engels</u>, Eric J. Michaud, Isaac Liao, Wes Gurnee, and Max Tegmark.<br>
-        <a href="https://arxiv.org/pdf/2405.14860">Preprint</a> |
-        <a href="https://github.com/JoshEngels/MultiDimensionalFeatures">Code</a> |
-        <a href="https://x.com/JoshAEngels/status/1793990584719548493">Twitter</a> |
-        <a href="https://www.youtube.com/watch?v=mKhDIMajJm8">Talk</a>
+        <b>OptPDE: Discovering Novel Integrable Systems via AI-Human Collaboration</b> <br>
+        <u>Subhash Kantamneni</u>, Ziming Liu, and Max Tegmark<br>
+        <a href="https://arxiv.org/abs/2405.04484">Paper</a> |
+        <a href="https://github.com/subhashk01/pde-sid">Code</a> |
+        <a href="https://x.com/thesubhashk/status/1788643691231576162">Twitter</a> | <i>Physical Review E</i>
       </p>
 
       <p>
-        <b>Approximate Nearest Neighbor Search with Window Filters.</b> <br>
-        <u>Joshua Engels</u>, Benjamin Landrum, Shangdi Yu, Laxman Dhulipala, and Julian Shun.<br>
-        ICML 2024.<br>
-        <a href="https://proceedings.mlr.press/v235/engels24a.html">Paper</a> |
-        <a href="https://github.com/JoshEngels/RangeFilteredANN">Code</a>
+        <b>Enhancing Predictive Capabilities in Fusion Burning Plasmas Through Surrogate-Based Optimization in Core Transport Solvers</b> <br>
+        P. Rodriguez-Fernandez, N.T. Howard, A. Saltzman, <u>Subhash Kantamneni</u>, J. Candy, C. Holland, M. Balandat, S. Ament, A.E. White<br>
+        <a href="https://arxiv.org/abs/2312.12610">Paper</a> | <i>Nuclear Fusion</i>
       </p>
 
-<!--       <p>
-        <b>PECANN: Parallel Efficient Clustering with Graph-Based Approximate Nearest Neighbor Search.</b> <br>
-        Shangdi Yu, <u>Joshua Engels</u>, Yihao Huang, and Julian Shun.<br>
-        <a href="https://arxiv.org/abs/2312.03940">Preprint</a> |
-        <a href="https://github.com/yushangdi/PECANN-DPC">Code</a>
-      </p> -->
-      
 
       <p>
-        <b>DESSERT: An Efficient Algorithm for Vector Set Search with Vector Set Queries.</b> <br>
-        <u>Joshua Engels</u>, Benjamin Coleman,  Vihan Lakshman, and Anshumali Shrivastava<br>
-        NeurIPS 2023.<br>
-        <a href="https://proceedings.neurips.cc/paper_files/paper/2023/file/d6cc45de2e2dea14b96c1eba88fd8ef7-Paper-Conference.pdf">Paper</a> |
-        <a href="https://github.com/ThirdAIResearch/Dessert">Code</a> |
-        <a href="dessert">Blog Post</a>
+        <b>NuCLR: Nuclear Co-Learned Representations</b> <br>
+        Ouail Kitouni, Niklas Nolte, Sokratis Trifinopoulos, <u>Subhash Kantamneni</u>, and Mike Williams<br>
+        <a href="https://arxiv.org/abs/2306.06099">Paper</a> | ICML 2023 SynS and ML Workshop
       </p>
 
-<!--       <p>
-        <b>BOLT: An Automated Deep Learning Framework for Training and Deploying Large-Scale Search and Recommendation Models on Commodity CPU Hardware.</b> <br>
-        Nicholas Meisburger, Vihan Lakshman, Benito Geordie, <u>Joshua Engels</u>, David Torres Ramos, Pratik Pranav, Benjamin Coleman, et al.<br>
-        CIKM 2023.<br>
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3583780.3615458">Paper</a>
-      </p>
-      
- 
-      <p>
-        <b>From Research to Production: Towards Scalable and Sustainable Neural Recommendation Models on Commodity CPU Hardware.</b> <br>
-        Anshumali Shrivastava, Vihan Lakshman, Tharun Medini, Nicholas Meisburger, <u>Joshua Engels</u>, David Torres Ramos, Benito Geordie, et al.<br>
-        RecSys 2023.<br>
-        <a href="https://dl.acm.org/doi/pdf/10.1145/3604915.3610249">Paper</a>
-      </p> -->
-
-      <p>
-        <b>Practical Near Neighbor Search via Group Testing.</b> <br>
-        <u>Joshua Engels</u>*, Benjamin Coleman*, and Anshumali Shrivastava<br>
-        NeurIPS 2021: Spotlight talk - top 3%<br>
-        <a href="https://proceedings.neurips.cc/paper/2021/file/5248e5118c84beea359b6ea385393661-Paper.pdf">Paper</a> |
-        <a href="https://slideslive.com/38968473/practical-near-neighbor-search-via-group-testing?ref=recommended">Talk</a> |
-        <a href="https://github.com/JoshEngels/FLINNG">Code</a>
-        <!-- <a href="flinng">Blog Post</a> -->
-      </p>
-
-<!--       <p>
-        <b>Missed one! How ballot layout and visual task strategy can interact to produce voting errors.</b> <br>
-        <u>Joshua Engels</u>, Xianni Wang, Michael D. Byrne<br>
-        International Conference on Cognitive Modeling 2020.<br>
-        <a href="https://par.nsf.gov/servlets/purl/10195603">Paper</a> |
-        <a href="https://mathpsych.org/presentation/148">Talk</a> |
-        <a href="https://github.com/JoshEngels/VotingModel">Code</a> |
-        <a href="voting">Blog Post</a>
-      </p>
- -->
-      * indicates equal contribution<br>
 
       <hr>
 
@@ -175,23 +142,6 @@
         <a href="https://www.lesswrong.com/posts/NMLq8yoTecAF44KX9/sae-probing-what-is-it-good-for-absolutely-something">SAE Probing: What is it good for? Absolutely something!</a> (2024) - 
         We examine whether SAE probes are more data efficient and robust than activation probes.
       </p>
-
-      <p>
-        <a href="assets/files/othello_interp.pdf">Examining the Interaction of Interpretable Features and
-            Training Dynamics in Othello-GPT</a> (2023) - 
-        We experiment with promoting linear features while training Othello-GPT.
-      </p>
-      
-
-<!--       <h2>Blog Posts</h2>
-      {% for post in site.posts %}
-      <a href="{{ post.url }}">{{ post.title }}</a><br>
-      {{ post.content | strip_html | truncatewords: 18 }}
-      <br>
-      {% if forloop.last == false %}
-        <br>
-      {% endif %}
-      {% endfor %} -->
 
     </section>
     <footer>
